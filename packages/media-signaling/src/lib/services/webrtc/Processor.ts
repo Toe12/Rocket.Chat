@@ -15,7 +15,7 @@ type IceGatheringData = {
 export class MediaCallWebRTCProcessor implements IWebRTCProcessor {
 	public emitter: Emitter<WebRTCProcessorEvents>;
 
-	private peer: RTCPeerConnection;
+	protected peer: RTCPeerConnection;
 
 	private iceGatheringFinished = false;
 
