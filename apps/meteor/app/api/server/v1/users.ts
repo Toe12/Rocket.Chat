@@ -63,7 +63,6 @@ import { validateCustomFields } from '../../../lib/server/functions/validateCust
 import { validateNameChars } from '../../../lib/server/functions/validateNameChars';
 import { validateUsername } from '../../../lib/server/functions/validateUsername';
 import { notifyOnUserChange, notifyOnUserChangeAsync } from '../../../lib/server/lib/notifyListener';
-import { generateAccessToken } from '../../../lib/server/methods/createToken';
 import { deleteUserOwnAccount } from '../../../lib/server/methods/deleteUserOwnAccount';
 import { settings } from '../../../settings/server';
 import { getURL } from '../../../utils/server/getURL';
@@ -730,20 +729,6 @@ API.v1.addRoute(
 			}
 
 			return API.v1.success();
-		},
-	},
-);
-
-API.v1.addRoute(
-	'users.createToken',
-	{ authRequired: true, deprecationVersion: '8.0.0' },
-	{
-		async post() {
-			const user = await getUserFromParams(this.bodyParams);
-
-			const data = await generateAccessToken(this.userId, user._id);
-
-			return data ? API.v1.success({ data }) : API.v1.forbidden();
 		},
 	},
 );
