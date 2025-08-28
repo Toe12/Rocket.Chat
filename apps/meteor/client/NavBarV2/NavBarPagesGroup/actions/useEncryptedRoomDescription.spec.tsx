@@ -13,7 +13,7 @@ describe('useEncryptedRoomDescription', () => {
 						.withSetting('E2E_Enabled_Default_PrivateRooms', false)
                         .withSetting('language', 'pt-BR')
 						.withUserPreference('language', 'pt-BR')
-                        .withTranslationLanguage('pt-BR')
+                        .withDefaultLanguage('pt-BR')
 						.withTranslations('pt-BR', 'core', {
 							Encrypted_not_available: 'Indisponível para {{roomType}} públicos',
 							Not_available_for_broadcast: 'Não disponível para transmissão {{roomType}}',
@@ -38,7 +38,7 @@ describe('useEncryptedRoomDescription', () => {
 					wrapper: mockAppRoot()
 						.withSetting('E2E_Enable', true)
 						.withSetting('E2E_Enabled_Default_PrivateRooms', false)
-                        .withTranslationLanguage('pt-BR')
+                        .withDefaultLanguage('pt-BR')
 						.withTranslations('pt-BR', 'core', {
 							Encrypted_not_available: 'Indisponível para {{roomType}} públicos',
 							Not_available_for_broadcast: 'Não disponível para transmissão {{roomType}}',
